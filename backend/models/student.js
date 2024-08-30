@@ -7,7 +7,7 @@ const studentSchema = new Schema({
   },
   gender: {
     type: String,
-    required: true,
+    required: false,
     enum: ["Male", "Female", "Other"],
   },
   rollno: {
@@ -16,39 +16,35 @@ const studentSchema = new Schema({
   },
   email: {
     type: String,
+    required: false,
+  },
+  password: {
+    type: String,
     required: true,
   },
   phone: {
     type: String,
-    required: true,
+    required: false,
   },
   branch: {
     type: String,
-    required: true,
+    required: false,
     enum: ["CSE", "CSM", "CSD", "IT"],
   },
   section: {
     type: String,
-    required: true,
+    required: false,
+    enum: ["A", "B", "C", "D", "E", "F", "G"],
   },
   fs: {
     type: String,
-    required: true,
+    required: false,
     enum: ["Elite", "A1-1", "A1-2", "A2", "NFS"],
     default: "NFS",
   },
-  tenthgpa: {
-    type: Number,
-    required: true,
-  },
-  twelfthgpa: {
-    type: Number,
-    required: true,
-  },
-  btechCgpa: {
-    type: Number,
-    required: true,
-  },
+  tenthgpa: Number,
+  twelfthgpa: Number,
+  btechCgpa: Number,
   placedCompany: {
     type: Schema.Types.ObjectId,
     ref: "Opening",

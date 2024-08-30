@@ -21,6 +21,7 @@ studentsRouter.post("/", async (c) => {
 
 // All Students
 studentsRouter.get("/", async (c) => {
+  console.log("All Students");
   try {
     const students = await Student.find();
     return c.json(students, 200);
@@ -59,11 +60,11 @@ studentsRouter.get("/unplaced", async (c) => {
 });
 
 // Student by ID
-studentsRouter.get("/:studentId", async (c) => {
-  const { studentId } = c.req.param();
-  console.log(studentId);
+studentsRouter.get("/:rollNo", async (c) => {
+  const { rollNo } = c.req.param();
+  console.log(rollNo);
   try {
-    const student = await Student.findById(studentId);
+    const student = await Student.find({ rollno: rollNo });
     if (!student) {
       return c.text("Student not found", 404);
     }
