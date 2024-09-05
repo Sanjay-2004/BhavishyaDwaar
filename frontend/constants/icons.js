@@ -6,6 +6,7 @@ import ResumeIcon from "../assets/icons/ResumeIcon";
 import UserIcon from "../assets/icons/UserIcon";
 import SearchIcon from "../assets/icons/SearchIcon";
 import Arrow from "../assets/icons/Arrow";
+import Cross from "../assets/icons/Cross";
 
 export {
   EyeHide,
@@ -16,4 +17,5 @@ export {
   UserIcon,
   SearchIcon,
   Arrow,
+  Cross,
 };
