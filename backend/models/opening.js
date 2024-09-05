@@ -47,10 +47,13 @@ const openingSchema = new Schema({
     type: Date,
     required: true,
   },
-  open: {
-    type: Boolean,
+  location: {
+    type: String,
     required: true,
-    default: true,
+  },
+  additionalDetails: {
+    type: [String],
+    required: false,
   },
 });
 
