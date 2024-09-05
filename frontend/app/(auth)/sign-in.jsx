@@ -7,6 +7,7 @@ import CustomButton from '../../components/CustomButton'
 import axios from 'axios'
 import { router } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { BACKEND_URL } from '@env'
 
 const SignIn = () => {
     const [form, setForm] = useState({
@@ -24,7 +25,7 @@ const SignIn = () => {
         setIsSubmitting(true)
         try {
             console.log(form)
-            const response = await axios.get(`https://clean-worms-repair.loca.lt/students/${form.rollno}`);
+            const response = await axios.get(`${BACKEND_URL}/${form.rollno}`);
             console.log(response.data)
             Alert.alert('Success', 'Log In Successful')
             router.replace("/home")

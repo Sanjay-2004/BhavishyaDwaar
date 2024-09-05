@@ -1,6 +1,7 @@
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Arrow } from '../constants/icons'
+import { router } from 'expo-router'
 
 // Function to split text at the second space
 const splitTextAtSecondSpace = (text) => {
@@ -19,7 +20,7 @@ const formatDate = (dateString) => {
     return date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })
 }
 
-const JobOpening = ({ job: { companyName, role, ctc, jobDescription, lastDate, sectionsAllowed = [] } }) => {
+const JobOpening = ({ job: { _id: companyId, companyName, role, ctc, jobDescription, lastDate, sectionsAllowed = [] } }) => {
     const [roleLine1, roleLine2] = splitTextAtSecondSpace(role)
     const formattedDate = formatDate(lastDate)
 
@@ -45,9 +46,14 @@ const JobOpening = ({ job: { companyName, role, ctc, jobDescription, lastDate, s
                     ))}
                 </View>
             </View>
-            <View className="absolute bottom-3 right-5 bg-secondary-100 px-2 py-1 rounded-md">
+            <TouchableOpacity
+                onPress={() => {
+                    router.push(`/job/${companyId}`)
+                }
+                }
+                className="absolute bottom-3 right-5 bg-secondary-100 px-2 py-1 rounded-md">
                 <Arrow name="right" size={20} color={"#5F4D8B"} />
-            </View>
+            </TouchableOpacity>
         </View>
     )
 }

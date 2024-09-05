@@ -6,6 +6,7 @@ import FormField from '../../components/FormField'
 import CustomButton from '../../components/CustomButton'
 import axios from 'axios'
 import { router } from 'expo-router'
+import { BACKEND_URL } from '@env'
 
 const SignUp = () => {
 
@@ -24,7 +25,7 @@ const SignUp = () => {
         setIsSubmitting(true)
         try {
             console.log(form)
-            const response = await axios.post('https://clean-worms-repair.loca.lt/students', form);
+            const response = await axios.post(`${BACKEND_URL}/students`, form);
             console.log(response.data)
             Alert.alert('Success', 'Account created successfully')
             router.replace("/home")
